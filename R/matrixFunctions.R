@@ -209,10 +209,10 @@ read.vectors <- function(filename,vectors=guess_n_cols(),binary=FALSE,...) {
   guess_n_cols = function() {
     # if cols is not defined
     test = utils::read.table(filename,header=F,skip=1,
-                       nrows=1,quote="",comment.char="")
+                       nrows=1,quote="",fileEncoding="UTF-8",comment.char="")
   return(ncol(test)-1)
   }
-  vectors_matrix = utils::read.table(filename,header=F,skip=1,
+  vectors_matrix = utils::read.table(filename,header=F,skip=1,fileEncoding="UTF-8",
                                colClasses = c("character",rep("numeric",vectors)),
                        quote="",comment.char="",...)
   names(vectors_matrix)[1] = "word"
